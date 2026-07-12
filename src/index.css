@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Quill dark theme overrides */
+.rich-editor-wrapper .ql-toolbar {
+  border-color: rgba(255,255,255,0.1) !important;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: rgba(255,255,255,0.03);
+}
+.rich-editor-wrapper .ql-container {
+  border-color: rgba(255,255,255,0.1) !important;
+  border-radius: 0 0 0.75rem 0.75rem;
+  background: rgba(255,255,255,0.03);
+  color: #E8EDF5;
+  font-size: 14px;
+  min-height: 200px;
+}
+.rich-editor-wrapper .ql-editor {
+  min-height: 200px;
+  color: #E8EDF5;
+}
+.rich-editor-wrapper .ql-editor.ql-blank::before {
+  color: rgba(255,255,255,0.25);
+  font-style: normal;
+}
+.rich-editor-wrapper .ql-stroke { stroke: rgba(255,255,255,0.4); }
+.rich-editor-wrapper .ql-fill { fill: rgba(255,255,255,0.4); }
+.rich-editor-wrapper .ql-picker { color: rgba(255,255,255,0.5); }
+.rich-editor-wrapper .ql-picker-options {
+  background: #1a1f2e;
+  border-color: rgba(255,255,255,0.1);
+}
+.rich-editor-wrapper button:hover .ql-stroke,
+.rich-editor-wrapper .ql-picker-label:hover { color: #FF6B2B; }
+.rich-editor-wrapper button:hover .ql-stroke { stroke: #FF6B2B; }
+.rich-editor-wrapper button.ql-active .ql-stroke { stroke: #FF6B2B; }
+.rich-editor-wrapper .ql-picker-label.ql-active { color: #FF6B2B; }
+
+@layer base {
+  :root {
+    --background: 222 47% 7%;
+    --foreground: 213 27% 94%;
+    --card: 222 47% 9%;
+    --card-foreground: 213 27% 94%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 213 27% 94%;
+    --primary: 221 89% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 213 27% 94%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 50%;
+    --accent: 221 89% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 221 89% 62%;
+    --radius: 0.625rem;
+
+    /* Brand colors */
+    --obsidian: #0C0F1A;
+    --cyber-violet: #FF6B2B;
+    --solar-flare: #FF6B2B;
+    --electric-lime: #FF6B2B;
+    --pearl-grey: #E8EDF5;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 213 27% 94%;
+    --card: 222 47% 9%;
+    --card-foreground: 213 27% 94%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 213 27% 94%;
+    --primary: 221 89% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 213 27% 94%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 50%;
+    --accent: 221 89% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 221 89% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: #0C0F1A;
+    color: #E8EDF5;
+    font-family: 'Inter Tight', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #08080C;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #FF6B2B;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for carousels */
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  .text-cyber-violet { color: #FF6B2B; }
+  .text-solar-flare { color: #FF6B2B; }
+  .text-electric-lime { color: #FF6B2B; }
+  .text-pearl-grey { color: #E8EDF5; }
+  .bg-obsidian { background-color: #0C0F1A; }
+  .bg-cyber-violet { background-color: #FF6B2B; }
+  .bg-solar-flare { background-color: #FF6B2B; }
+  .bg-electric-lime { background-color: #FF6B2B; }
+  .border-cyber-violet { border-color: #FF6B2B; }
+  .border-solar-flare { border-color: #FF6B2B; }
+  .border-electric-lime { border-color: #FF6B2B; }
+
+  .neon-glow-violet {
+    text-shadow: none;
+  }
+
+  .neon-glow-orange {
+    text-shadow: none;
+  }
+
+  .neon-glow-lime {
+    text-shadow: none;
+  }
+
+  .box-glow-violet {
+    box-shadow: none;
+  }
+
+  .box-glow-orange {
+    box-shadow: none;
+  }
+
+  .hero-headline {
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 0.9;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .section-headline {
+    font-size: clamp(2rem, 5vw, 5rem);
+    line-height: 0.95;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-line::after {
+    display: none;
+  }
+
+  .glitch-text {
+    position: relative;
+  }
+
+  .noise-overlay::before {
+    display: none;
+  }
+
+  .card-hover-neon {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .card-hover-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 107, 43, 0.15);
+  }
+
+  .btn-primary {
+    background: #FF6B2B;
+    color: white;
+    padding: 12px 32px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #FF8C4D;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: 0;
+  }
+
+  .btn-primary:hover::before {
+    transform: scaleX(1);
+  }
+
+  .btn-primary span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary:hover span {
+    color: #ffffff;
+  }
+
+  .tag-chip {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-radius: 999px;
+  }
+}
